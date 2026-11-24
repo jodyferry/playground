@@ -1,42 +1,38 @@
 # playground
 
-Design and code experiments, deployed to [playground.jodyferry.com](https://playground.jodyferry.com).
+Design and code experiments by [Jody Ferry](https://www.jodyferry.com).
 
-| Project | Folder | URL |
-| --- | --- | --- |
-| Carbonite Design System | [`carbonite/`](carbonite) | playground.jodyferry.com/carbonite |
+**Live:** [playground.jodyferry.com](https://playground.jodyferry.com)
+
+## Projects
+
+| Project | Description | Live | Source |
+| --- | --- | --- | --- |
+| **Carbonite Design System** | A concept design system for backup and security products across web, iOS, and Android. Built with React and shadcn/ui. | [playground.jodyferry.com/carbonite](https://playground.jodyferry.com/carbonite/) | [`carbonite/`](carbonite) |
 
 ## Run a project locally
 
+Requires Node.js 20 or newer.
+
 ```bash
-cd carbonite
+git clone https://github.com/jodyferry/playground.git
+cd playground/carbonite
 npm install
 npm run dev
 ```
 
-## Deploy
+Then open http://localhost:5173/carbonite/
 
-Hosted on Netlify as its own site, separate from other projects. `netlify.toml` builds each project and copies its output into `public/<project>/`. The root `index.html` is a small landing page that links to each project.
+## How it's deployed
 
-### One-time Netlify setup
+The site is hosted on [Netlify](https://www.netlify.com) and deploys automatically on every push to `main`.
 
-1. In Netlify, choose **Add new project > Import an existing project > GitHub** and pick `jodyferry/playground`.
-2. Leave the build settings as detected. They come from `netlify.toml`.
-3. Deploy. You'll get a URL like `something.netlify.app`.
+- Each project lives in its own folder and is served from a matching path, such as `/carbonite`.
+- [`netlify.toml`](netlify.toml) builds each project and copies its output into `public/<project>/`.
+- [`index.html`](index.html) is a small landing page that links to each project.
 
-### Custom subdomain (Squarespace DNS)
+### Adding a new project
 
-1. Netlify: **Domain management > Add a domain** > `playground.jodyferry.com`.
-2. Squarespace: **Domains > jodyferry.com > DNS settings > Add record**
-   - Type: `CNAME`
-   - Host: `playground`
-   - Data: `<your-site-name>.netlify.app`
-3. Back in Netlify, verify the domain. HTTPS is provisioned automatically once DNS resolves (usually within an hour).
-
-The Framer site on `www.jodyferry.com` is unaffected.
-
-### Adding another project
-
-1. Create a folder, e.g. `my-project/`, configured to build with base path `/my-project/`.
-2. Add its build and copy step to the `command` in `netlify.toml`, plus a redirect if it uses client-side routing.
-3. Add a card to `index.html`.
+1. Create a folder, such as `my-project/`, with its build base path set to `/my-project/`.
+2. Add its build and copy steps to the `command` in `netlify.toml`, plus a redirect if it uses client-side routing.
+3. Add a card for it to `index.html` and a row to the table above.
