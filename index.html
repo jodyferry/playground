@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground · Jody Ferry</title>
+    <style>
+      :root { color-scheme: light dark; --bg: #f7f8fa; --fg: #0b1e3f; --muted: #52607a; --card: #fff; --line: #e3e7ee; --accent: #0b5fd1; }
+      @media (prefers-color-scheme: dark) { :root { --bg: #071327; --fg: #eef2f8; --muted: #9aa8c0; --card: #0e1f3d; --line: #1f3358; --accent: #6aa8ff; } }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); display: grid; place-items: center; padding: 24px 16px; }
+      main { width: 100%; max-width: 640px; }
+      h1 { font-size: 2rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+      p { color: var(--muted); margin: 0 0 32px; line-height: 1.6; }
+      a.card { display: block; padding: 20px 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: inherit; text-decoration: none; transition: border-color .15s; }
+      a.card:hover { border-color: var(--accent); }
+      a.card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      a.card span { color: var(--muted); font-size: .95rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Playground</h1>
+      <p>Design and code experiments by Jody Ferry.</p>
+      <a class="card" href="/carbonite/">
+        <strong>Carbonite Design System →</strong>
+        <span>A concept design system for Carbonite web and native apps, built with React and shadcn/ui.</span>
+      </a>
+    </main>
+  </body>
+</html>

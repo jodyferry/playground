@@ -1,0 +1,17 @@
+# Netlify config for playground.jodyferry.com
+# Each project lives in its own folder and is served from a matching subpath.
+#   carbonite/  ->  playground.jodyferry.com/carbonite
+
+[build]
+  base = "."
+  command = "npm ci --prefix carbonite && npm run build --prefix carbonite && mkdir -p public && cp -R carbonite/dist/carbonite public/carbonite && cp index.html public/index.html"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Client-side routing fallback for the Carbonite React app
+[[redirects]]
+  from = "/carbonite/*"
+  to = "/carbonite/index.html"
+  status = 200
